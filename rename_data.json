@@ -1,0 +1,105 @@
+{
+	"13": {
+		"models": {
+			"account.register.payments": "account.payment.register"
+		},
+		"fields": {
+			"account.move": {
+				"amount": "amount_total"
+			}
+		}
+	},
+	"14": {
+		"fields": {
+			"account.move": {
+				"type": "move_type"
+			},
+			"account.invoice.report": {
+				"type": "move_type"
+			},
+			"account.bank.statement.line": {
+				"name": "payment_ref"
+			}
+		}
+	},
+	"15": {
+		"models": {
+			"stock.inventory.line.reason": "stock.quant.reason"
+		},
+		"fields": {
+			"account.move": {
+				"type": "move_type",
+				"tax_cash_basis_move_id": "tax_cash_basis_origin_move_id"
+			},
+			"account.reconcile.model": {
+				"match_total_amount_param": "payment_tolerance_param",
+				"match_total_amount": "allow_payment_tolerance"
+			},
+			"account.reconcile.model.template": {
+				"match_total_amount_param": "payment_tolerance_param",
+				"match_total_amount": "allow_payment_tolerance"
+			},
+			"project.task": {
+				"dependency_task_ids": "depend_on_ids",
+				"depending_task_ids": "dependent_ids"
+			},
+			"res.company": {
+				"account_tax_fiscal_country_id": "account_fiscal_country_id"
+			},
+			"sale.order.line": {
+				"product_packaging": "product_packaging_id"
+			}
+		}
+	},
+	"16": {
+		"fields": {
+			"utm.campaign": {
+				"name": "title"
+			},
+			"marketing.campaign": {
+				"name": "title"
+			},
+			"product.supplierinfo": {
+				"name": "partner_id"
+			},
+			"payment.token": {
+				"name": "payment_details"
+			},
+			"account.analytic.line": {
+				"move_id": "move_line_id"
+			},
+			"stock.rule": {
+				"location_id": "location_dest_id"
+			},
+			"stock.move.line": {
+				"product_uom_qty": "reserved_uom_qty",
+				"product_qty": "reserved_qty"
+			}
+		}
+	},
+	"17": {
+		"fields": {
+			"hr.employee": {
+				"phone": "private_phone"
+			},
+			"report.project.task.user": {
+				"state": "kanban_state"
+			},
+			"report.project.task.user.fsm": {
+				"state": "kanban_state"
+			},
+			"spreadsheet.dashboard": {
+				"data": "spreadsheet_binary_data"
+			},
+			"spreadsheet.template": {
+				"data": "spreadsheet_binary_data"
+			},
+			"save.spreadsheet.template": {
+				"data": "spreadsheet_binary_data"
+			},
+			"account.report.footnote": {
+				"line": "line_id"
+			}
+		}
+	}
+}
