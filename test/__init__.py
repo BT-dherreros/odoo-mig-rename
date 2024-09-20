@@ -6,5 +6,4 @@
 # See LICENSE file for full licensing details.
 ##############################################################################
 
-from . import models
-from .hooks import post_load, uninstall_hook
+from . import test_migration_renaming_14

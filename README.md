@@ -15,9 +15,9 @@ The script is summoned as:
 TODOs:
 - Increase coverage of rename_data.json
 - Create unit tests. Comparing the result of processing test_module against manually migrated versions of it will give us better
-understanding on the workings and possible issues per version change. (Maybe should be part of a different script)
+understanding on the workings and possible issues per version change. 
 - Cover the earliest versions of Odoo, if possible including ORM changes. (Maybe should be part of a different script)
-- Update/Write file headers. This is a nice thing to have that would save some developing time.
+- Update/Write file headers. This is a nice thing to have that would save some developing time. (Maybe should be part of a different script)
 - For fields that have been renamed in a file that inherits a different model, we need to be able to identify
 those case and rename accordingly. A example would be L25 of test_module/views/account_move.xml
 - Cover of csv files. Since the naming of the models in the security csv files is different i.e. module.model_model_name,
