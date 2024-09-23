@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2024 braintec AG (https://braintec.com)
+All Rights Reserved
+Licensed under the AGPL-3.0 (http://www.gnu.org/licenses/agpl.html).
+See LICENSE file for full licensing details.
+-->
+<odoo>
+    <data noupdate="1">
+        <record id="model_renamed_data" model="stock.inventory.line.reason">
+            <field name="name">My model name is outdated!</field>
+        </record>
+    </data>
+</odoo>

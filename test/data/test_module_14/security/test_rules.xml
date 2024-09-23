@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2024 braintec AG (https://braintec.com)
+All Rights Reserved
+Licensed under the AGPL-3.0 (http://www.gnu.org/licenses/agpl.html).
+See LICENSE file for full licensing details.
+-->
+<odoo>
+    <data noupdate="1">
+        <record id="test_rule" model="ir.rule">
+            <field name="name">This Rule Model Ref is out of date since version 15</field>
+            <field name="model_id" ref="stock_change_qty_reason.model_stock_inventory_line_reason"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[Command.link(ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

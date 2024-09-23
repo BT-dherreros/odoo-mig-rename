@@ -15,9 +15,9 @@ class TestMigrationRenaming14(unittest.TestCase):
     def setUp(self):
         # Define paths or any setup needed
         self.script_path = '../mig_rename.py'
-        self.module_directory = 'module_test'
+        self.module_directory = './data/test_module_14'
         self.target_version = '14'
-        self.expected_file_result = './data/test_module_14'
+        self.expected_module_result = './data/test_module_14_result'
 
     def test_script_with_arguments(self):
         # Command to execute the script with arguments

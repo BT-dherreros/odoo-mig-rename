@@ -23,8 +23,13 @@ def main(arguments):
     parser.add_argument('module', help="Module")
     parser.add_argument('target_version', help="Target Version")
 
+
+    # pick the rename_data.json
+    my_dir = os.path.dirname(__file__)
+    rename_data_json_path = os.path.join(my_dir, 'rename_data.json')
+
     # Load the name changes dictionary
-    with open('rename_data.json', 'r') as name_changes_file:
+    with open(rename_data_json_path, 'r') as name_changes_file:
         global NAME_CHANGES_CACHE
         NAME_CHANGES_CACHE = json.load(name_changes_file)
 
@@ -69,8 +74,10 @@ def process_file(file, start_version, target_version):
                 for model, fields in version_name_changes['fields'].items():
                     # We try to be sure we are changing the fields on the correct model file, of course, if a
                     # file has more than one model in it we are in deep trouble
-                    if re.match(r"_inherit\s*=\s*[\"']{}[\"']".format(model), new_content):
-                        for old_field_name, new_field_name in model.items():
+                    if re.match(
+                            r"_inherit\s*=\s*[\"']{}[\"']".format(model), new_content
+                    ) or '<field name="model">{}</field>'.format(model) in new_content:
+                        for old_field_name, new_field_name in fields.items():
                             new_content = re.sub(old_field_name, new_field_name, new_content)
             print('Processing of File: {}. Finished Renaming for version Changes found for version {}'.format(
                 file, version
