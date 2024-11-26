@@ -6,6 +6,7 @@
 # See LICENSE file for full licensing details.
 ##############################################################################
 
+import os
 import unittest
 import subprocess
 
@@ -13,11 +14,18 @@ import subprocess
 class TestMigrationRenaming14(unittest.TestCase):
 
     def setUp(self):
+        # Change root directory
+        self.original_dir = os.getcwd()
+        os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         # Define paths or any setup needed
-        self.script_path = '../mig_rename.py'
-        self.module_directory = './data/test_module_14'
+        self.script_path = 'mig_rename.py'
+        self.module_directory = 'test/data/module_test'
         self.target_version = '14'
-        self.expected_module_result = './data/test_module_14_result'
+        self.expected_file_result = 'test/data/module_test'
+
+    def tearDown(self):
+        # Revert to the original working directory
+        os.chdir(self.original_dir)
 
     def test_script_with_arguments(self):
         # Command to execute the script with arguments
