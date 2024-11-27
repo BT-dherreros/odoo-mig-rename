@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (c) 2024 braintec AG (https://braintec.com)
+All Rights Reserved
+Licensed under the AGPL-3.0 (http://www.gnu.org/licenses/agpl.html).
+See LICENSE file for full licensing details.
+-->
+<odoo>
+    <data>
+        <record id="stock_inventory_line_reason_form" model="ir.ui.view">
+            <field name="name">stock.inventory.line.reason.form</field>
+            <field name="model">stock.inventory.line.reason</field>
+            <field name="inherit_id" ref="stock_change_qty_reason.stock_inventory_line_reason_form"/>
+            <field name="arch" type="xml">
+                <field name="//group[1]" position="inside">
+                    <field name="new_int_field"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

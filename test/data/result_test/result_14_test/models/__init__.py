@@ -6,5 +6,5 @@
 # See LICENSE file for full licensing details.
 ##############################################################################
 
-from . import models
-from .hooks import post_load, uninstall_hook
+from . import account_move
+from . import stock_inventory_line_reason
