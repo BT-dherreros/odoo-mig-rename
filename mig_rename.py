@@ -69,9 +69,20 @@ def process_file(file, start_version, target_version):
                 for model, fields in version_name_changes['fields'].items():
                     # We try to be sure we are changing the fields on the correct model file, of course, if a
                     # file has more than one model in it we are in deep trouble
-                    if re.search(r"_inherit\s*=\s*[\"']{}[\"']".format(model), new_content):
+                    if (
+                            re.search(r"_inherit\s*=\s*[\"']{}[\"']".format(model), new_content)
+                            or
+                            '<field name="model">{}</field>'.format(model) in new_content
+                    ):
                         for old_field_name, new_field_name in fields.items():
-                            new_content = re.sub(old_field_name, new_field_name, new_content)
+                            if '.py' in file:
+                                new_content = re.sub(old_field_name, new_field_name, new_content)
+                            elif '.xml' in file:
+                                before, separator, new_content = new_content.partition(
+                                    '<field name="arch" type="xml">'
+                                )
+                                new_content = re.sub(old_field_name, new_field_name, new_content)
+                                new_content = before + separator + new_content
             print('Processing of File: {}. Finished Renaming for version Changes found for version {}'.format(
                 file, version
             ))

@@ -10,6 +10,7 @@ import os
 import unittest
 import subprocess
 
+from common import compare_folders
 
 class TestMigrationRenaming14(unittest.TestCase):
 
@@ -33,10 +34,14 @@ class TestMigrationRenaming14(unittest.TestCase):
 
         # Run the command and capture the output
         result = subprocess.run(command, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0)
 
         # Assert statements to check if the output is as expected
         # loop test_module_14 to see if the processed output is correct
-        self.assertTrue(1, 1)
+        folder1 = "test/data/module_test"
+        folder2 = "test/data/result_test/result_14_test"
+        self.assertTrue(compare_folders(folder1, folder2), "Folders are not identical!")
+
 
 
 if __name__ == '__main__':

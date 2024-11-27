@@ -6,5 +6,9 @@
 # See LICENSE file for full licensing details.
 ##############################################################################
 
-from . import models
-from .hooks import post_load, uninstall_hook
+from odoo import api, fields, models
+
+class StockInventoryLineReason(models.Model):
+    _inherit = 'stock.inventory.line.reason'
+
+    new_int_field = fields.Integer()
